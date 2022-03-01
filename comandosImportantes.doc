@@ -10,3 +10,28 @@ ai temos que fazer o nodemon registrar o sucrase quando usarmos o nodemon (checa
 
 
 como é uma api rest não vai ser mvc vai ser um MC. não tem view em si.
+
+npm i dotenv
+
+
+usando Sequelize para criar, editar campos na tabela...
+usaremos ele para tudo que vai mexer com o banco de dados
+comando instalando tanto sequelize quanto mariadb
+para olhar as configurações dele veja o arquivo .sequelizerc e config/database.js
+
+npm i sequelize mariadb
+
+npm i -D sequelize-cli
+
+
+e para criar a primeira tabela basta usar o comando
+
+npx sequelize migration:create --name=alunos
+
+depois de criar a o migration você configura ele para criar os campos desejados
+e toda vez que for realizar uma alteração deve se gerar um novo por boa pratica.
+Ele marca data e tabela no nome ex: 20220301045114-alunos
+
+agora para iniciar ele no banco de dados:
+
+npx sequelize db:migrate
