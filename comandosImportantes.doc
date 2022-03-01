@@ -1,0 +1,12 @@
+npm init -y
+
+npx eslint --init
+
+npm i nodemon sucrase --save-dev
+
+sucrase permite que utilize import e export dos modulos do ES6 (ecmaScript)
+
+ai temos que fazer o nodemon registrar o sucrase quando usarmos o nodemon (checar o arquivo nodemon.json)
+
+
+como é uma api rest não vai ser mvc vai ser um MC. não tem view em si.
