@@ -35,3 +35,9 @@ Ele marca data e tabela no nome ex: 20220301045114-alunos
 agora para iniciar ele no banco de dados:
 
 npx sequelize db:migrate
+
+caso tenha feito algo errado na migração basta usar 'undo' npx sequelize db:migrate:undo
+
+como vamos lidar com senhas de usuarios temos que usar algo para camuflar as senhas
+
+npm i bcryptjs
