@@ -41,3 +41,30 @@ caso tenha feito algo errado na migração basta usar 'undo' npx sequelize db:mi
 como vamos lidar com senhas de usuarios temos que usar algo para camuflar as senhas
 
 npm i bcryptjs
+
+para criar o token da sessão.
+npm i jsonwebtoken
+
+
+Para criar conteudo nas tabelas usamos as seeds, assim fica mais fácil de injetar
+conteudo no banco de dados e ficar testando porém a outras funcionalidades
+
+npx sequelize seed:generate --name criar-usuarios
+
+e depois de preencher as configurações da seed ai sim podemos colocar no banco de dados
+usando:
+
+npx sequelize db:seed:all
+
+lembrando que usei all pois queria que fossem todos, mas poderia ter sido no lugar de all
+o nome da tabela.
+
+
+antes eu tinha montado a tabela alunos com e-mail sem ser unique então criei uma migration
+para usar esse e-mail do aluno como unique
+
+npx sequelize migration:create --name=mudar-email-aluno-unique
+
+criei a configuração da migrate e então subi para o banco de dados.
+
+npx Sequelize migrate:db

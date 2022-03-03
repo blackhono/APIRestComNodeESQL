@@ -1,13 +1,30 @@
 import { Router } from 'express';
 import userController from '../controllers/UserController';
+import loginRequired from '../middlewares/loginRequired';
 
 const router = new Router();
 
-router.post('/', userController.create);
-router.get('/', userController.index);
+// em uma aplicação real não faz sentido listar os usuários
+// pois acaba virando uma falha de segurança, porém vou
+// manter para exemplo.
+router.get('/', loginRequired, userController.index);
 router.get('/:id', userController.show);
-router.put('/:id', userController.update);
-router.delete('/:id', userController.delete);
+
+router.post('/', userController.create);
+// retirei o id do PUT para que o usuario não possa alterar
+// os dados de outro usuario, somente o dele.
+// router.put('/:id', loginRequired, userController.update);
+// router.delete('/:id', loginRequired, userController.delete);
+
+router.put('/:id', loginRequired, userController.update);
+router.delete('/:id', loginRequired, userController.delete);
+
+// pense sempre sobre a regra de negócio quando estiver
+// montando esse tipo de chamada (O que o usuário pode
+// fazer? O que ele não pode fazer?)
+// mas digamos que temos um nivel de autorização maior
+// a qual um tipo de usuario possa excluir outros.
+// Também pode acontecer.
 
 export default router;
 /*
