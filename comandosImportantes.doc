@@ -68,3 +68,9 @@ npx sequelize migration:create --name=mudar-email-aluno-unique
 criei a configuração da migrate e então subi para o banco de dados.
 
 npx Sequelize migrate:db
+
+
+
+agora para cuidar de upload de imagens vou usar multer
+
+npm i multer

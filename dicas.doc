@@ -1,1 +1,33 @@
 Lembrando que migrations mexem diretamente com o banco de dados
+
+
+
+opções do sequelize no migration...
+
+ON DELETE CASCADE se o registro pai for deletado o filho também será.
+
+ON UPDATE CASCADE se o primary key do registro pai for alterado, isso sera refletido
+no registro filho
+
+RESTRIC significa que qualquer tentativa de apagar ou atualizar o registro
+pai vai falhar lançando um erro.
+
+NO ACTION Sem ações. Significa que o MySQL não vai realizar nenhuma ação por você.
+porém você não poderá apagar ou atualizar a primary key do registro pai, nem conseguira alterar
+a foreign key do registro do filho caso a primary key do registro pai não tiver
+sido atualizada
+
+SET NULL se você apagar ou atualizar a primary key do registro pai, a foreignkey do registro
+filho será configurada como NULL.
+
+exemplo de configuração:
+aluno_id: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        references: {
+          model: 'alunos',
+          key: 'id',
+        },
+        onDelete: 'SET NULL',
+        onUpdate: 'CASCADE',
+      },
