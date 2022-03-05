@@ -1,5 +1,5 @@
 require('dotenv').config();
 
 export default {
-  url: process.env.URL_PATH,
+  url: process.env.APP_URL,
 };

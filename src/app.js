@@ -2,13 +2,13 @@ import dotenv from 'dotenv';
 import express from 'express';
 import { resolve } from 'path';
 
-import homeRoutes from './src/routes/homeRoutes';
-import userRoutes from './src/routes/userRoutes';
-import tokenRoutes from './src/routes/tokenRoutes';
-import alunosRoutes from './src/routes/alunoRoutes';
-import photoRoutes from './src/routes/photoRoutes';
+import homeRoutes from './routes/homeRoutes';
+import userRoutes from './routes/userRoutes';
+import tokenRoutes from './routes/tokenRoutes';
+import alunosRoutes from './routes/alunoRoutes';
+import photoRoutes from './routes/photoRoutes';
 
-import './src/database';
+import './database';
 
 dotenv.config();
 
