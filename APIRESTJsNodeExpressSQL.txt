@@ -1,7 +1,0 @@
-#### CRIANDO O CONTAINER DO MARIADB
-sudo docker run --restart always -d --name bdmariadb1 -p 3306:3306 \
-    -e MYSQL_ROOT_PASSWORD=2tifIRJN___-234_-5Jfl20dk mariadb
-
-senhaaaaa
-
-2tifIRJN___-234_-5Jfl20dk
