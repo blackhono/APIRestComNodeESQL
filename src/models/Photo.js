@@ -1,4 +1,5 @@
 import Sequelize, { Model } from 'sequelize';
+import appConfig from '../config/appConfig';
 
 export default class Photo extends Model {
   static init(sequelize) {
@@ -21,6 +22,12 @@ export default class Photo extends Model {
           },
         },
       },
+      url: {
+        type: Sequelize.VIRTUAL,
+        get() {
+          return `${appConfig.url}/images/${this.getDataValue('filename')}`;
+        },
+      },
 
     }, {
       sequelize,
@@ -28,8 +35,13 @@ export default class Photo extends Model {
     });
     return this;
   }
+}
 
-  static associate(models) {
+/*
+caso queira associar a foto ao aluno (mas como quero pesquisar o aluno e que venha a
+foto, preciso fazer o inverso)
+
+static associate(models) {
     this.belongsTo(models.Aluno, { foreignKey: 'aluno_id' });
   }
-}
+*/

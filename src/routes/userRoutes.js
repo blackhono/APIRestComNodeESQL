@@ -10,7 +10,8 @@ const router = new Router();
 router.get('/', loginRequired, userController.index);
 router.get('/:id', userController.show);
 
-router.post('/', userController.create);
+// rota comentada apenas para cadastros internos (como já criei um cadastro eu tenho acesso)
+// router.post('/', userController.create);
 // retirei o id do PUT para que o usuario não possa alterar
 // os dados de outro usuario, somente o dele.
 // router.put('/:id', loginRequired, userController.update);
